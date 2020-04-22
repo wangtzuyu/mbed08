@@ -91,6 +91,7 @@ void playNote(int freq)
 {
 
   for (int i = 0; i < kAudioTxBufferSize; i++)
+
   {
 
     waveform[i] = (int16_t) (signal[(uint16_t) (i * freq * signalLength * 1. / kAudioSampleFrequency) % signalLength]);
@@ -122,6 +123,8 @@ void stopPlayNoteC(void) {queue.cancel(idC);}
 int main(void)
 
 {
+
+  green_led = 1;
 
   t.start(callback(&queue, &EventQueue::dispatch_forever));
 
